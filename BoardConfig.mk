@@ -1,14 +1,13 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/samsung/hltetmo/BoardConfigVendor.mk
+-include vendor/samsung/ha3g/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := hltetmo
+TARGET_BOOTLOADER_BOARD_NAME := ha3g
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8660
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+TARGET_BOARD_PLATFORM := smdk4x12
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -16,7 +15,7 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
 
 # Architecture
-TARGET_CPU_VARIANT := krait
+TARGET_CPU_VARIANT := cortex-a15
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH := arm
@@ -25,11 +24,10 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
-BOARD_KERNEL_CMDLINE :=  console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F
-BOARD_KERNEL_BASE :=  0x00000000
-#BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
+BOARD_KERNEL_CMDLINE :=
+BOARD_KERNEL_BASE :=  0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --dt device/samsung/hltetmo/dtb --tags_offset 0x01e00000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x002649bc --dt device/samsung/ha3g/dtb --tags_offset 0x10000100 
 
 BOARD_BOOTIMAGE_PARTITION_SIZE :=     0x105c0000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00D00000
@@ -37,14 +35,13 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/samsung/hltetmo/kernAl
+TARGET_PREBUILT_KERNEL := device/samsung/ha3g/kernAl
 
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 
 # Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
-#BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/hltetmo/custombootimg.mk
 
 # TWRP specific build flags
 DEVICE_RESOLUTION := 1080x1920
