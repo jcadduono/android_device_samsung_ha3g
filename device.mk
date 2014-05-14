@@ -18,13 +18,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/libkeyutils.so:recovery/root/sbin/libkeyutils.so \
-    $(LOCAL_PATH)/recovery/libsec_ecryptfs.so:recovery/root/sbin/libsec_ecryptfs.so \
-    $(LOCAL_PATH)/recovery/libsec_km.so:recovery/root/sbin/libsec_km.so \
-	$(LOCAL_PATH)/selinux/file_contexts:recovery/root/prebuilt_file_contexts
-
+	$(LOCAL_PATH)/selinux/file_contexts:recovery/root/prebuilt_file_contexts \
+	$(LOCAL_PATH)/init.recovery.universal5420.rc:root/init.recovery.universal5420.rc
 
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_NAME := samsung_ha3g
 PRODUCT_BRAND := Samsung
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := init2
+LOCAL_OVERRIDE_PACKAGES := init
