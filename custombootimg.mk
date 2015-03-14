@@ -8,7 +8,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	#cp device/samsung/ha3g/recovery/init out/target/product/ha3g/recovery/root/init
 	chmod 644 out/target/product/ha3g/recovery/root/init.rc
 	chmod 644 out/target/product/ha3g/recovery/root/default.prop
-	(cd out/target/product/ha3g/recovery/root/ && find * | sort | cpio -o -H newc) | gzip > $(recovery_ramdisk)
+	(cd out/target/product/ha3g/recovery/root/ && find * | sort | cpio -o -H newc) | gzip -9 > $(recovery_ramdisk)
 	@echo ----- Making recovery image ------
 	$(MKBOOTIMG_BIN) --kernel $(TARGET_PREBUILT_KERNEL) --ramdisk $(recovery_ramdisk) --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) $(BOARD_MKBOOTIMG_ARGS) --output $@
 	@echo ----- Made recovery image -------- $@
