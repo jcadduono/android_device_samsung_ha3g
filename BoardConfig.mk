@@ -44,12 +44,13 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # TWRP specific build flags
-DEVICE_RESOLUTION := 1080x1920
+#DEVICE_RESOLUTION := 1080x1920
+TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TW_BRIGHTNESS_PATH := /sys/devices/platform/s5p-mipi-dsim.1/backlight/panel
+TW_BRIGHTNESS_PATH := /sys/devices/platform/s5p-mipi-dsim.1/backlight/panel/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
@@ -69,3 +70,4 @@ TW_NO_EXFAT_FUSE := true
 TW_NO_EXFAT := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/ha3g/custombootimg.mk
 TW_EXCLUDE_SUPERSU := true
+TW_DISABLE_TTF := true
