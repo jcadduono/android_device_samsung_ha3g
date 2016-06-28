@@ -59,5 +59,5 @@ TW_NO_EXFAT_FUSE := true
 TW_MTP_DEVICE := "/dev/mtp_usb"
 TW_EXCLUDE_SUPERSU := true
 
-# Asian region language support
-TW_EXTRA_LANGUAGES := true
+# Asian region language support (disabled, too big!)
+#TW_EXTRA_LANGUAGES := true
